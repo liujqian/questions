@@ -19,7 +19,7 @@ generated expressions and try to add them to the existing expression to get the 
 method can save time in the order of ten or more when the length limit is long. Please see the `bfs_with_memoization` function for more details.
 
 ## Question 2
-Please refer to the `proof_correctness_binary_search.ipynb` file.
+Please refer to the `proof_correctness_binary_search.ipynb` file or the `q2.pdf` file.
 
 ## Question 3
 Please refer to the `parser.py` and `parser_test.py` for the implementation and unit tests.
