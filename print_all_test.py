@@ -11,6 +11,7 @@ class TestParse(unittest.TestCase):
         }:
             self.assertEquals({"1"}, expr_gen(1, 1))
             self.assertEquals({"1", "1 * 1", "1 * 1 * 1", }, expr_gen(5, 1))
+            self.assertEquals({"x", "x * 1", "1 * x", "1 + 2", "2 + 1" }, expr_gen(3, 3))
             self.assertEquals({"x"}, expr_gen(1, 3))
             self.assertEquals(0, len(expr_gen(1, 4)))
             self.assertEquals(0, len(expr_gen(5, 0)))
