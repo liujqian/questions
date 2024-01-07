@@ -1,31 +1,30 @@
 # Attempts to the Problems
 ## Question 1
 Please refer to the `print_all.py` file for my implementation of the problem. If my understanding of the problem is correct, the problem can be 
-simplied as "finding all arithmetic expressions with only addition and multiplication operations and integers in the set of {1, 2, 3, 5}, 
+simplified as "finding all arithmetic expressions with only addition and multiplication operations and integers in the set of {1, 2, 3, 5}, 
 of at most L characters that evaluate to N." I consider operators taking lengths as well though the solution should be basically the same if operators don't count
 into the length of expressions.
 
-I have three implementations to the problem. The first one is to use recursion to enumerate all possible arithmetic expressions no longer than L and
+I have three implementations of the problem. The first one is to use recursion to enumerate all possible arithmetic expressions no longer than L and
 evaluate them with the `eval` function of Python. Then I keep the ones that evaluate to N. I use this as a quick implementation to test out my other 
 implementations. Please see the `brute_force_with_eval_entry` function for the details.
 
 The second implementation uses brute-force recursion as well but I keep track of the values of the expressions and the values of the last term (value of the
-expression after the last plus sign). I also try to use early stop when the existing expression is already larger than N. Please see the `brute_force_with_record_keeping_entry`
+expression after the last plus sign). I also try to use an early stop when the existing expression is already larger than N. Please see the `brute_force_with_record_keeping_entry`
 for details.
 
 The time complexity of the brute-force solution is roughly O(4^L). To improve the complexity is not easy. I try to remember all the evaluations of expressions
-generated in a breadth first search and after the search level has a length higher than half of the length limit, I can get all the previously 
+generated in a breadth-first search and after the search level has a length higher than half of the length limit, I can get all the previously 
 generated expressions and try to add them to the existing expression to get the target value. The complexity is still exponential but in my experiments, this 
 method can save time in the order of ten or more when the length limit is long. Please see the `bfs_with_memoization` function for more details.
 
 ## Question 2
-Please refer to the `proof_correctness_binary_search.ipynb` file or the `q2.pdf` file.
+Please refer to the `q2.pdf` file.
 
 ## Question 3
 Please refer to the `parser.py` and `parser_test.py` for the implementation and unit tests.
 First of all, the given grammar for Predicate P is ambiguous as the grammar does not dictate the precedence of the "and," "or," and "not" operators. 
-I assume that when evaluating a predicate, the "not" operator takes the highest precedence, the "and" operator has a lower precedence than the "not" operator 
-, and the "or" operator has the lowest precedence. Also, given the production rule of Predicate P not including parenthesis, 
+I assume that when evaluating a predicate, the "not" operator takes the highest precedence, the "and" operator has a lower precedence than the "not" operator, and the "or" operator has the lowest precedence. Also, given the production rule of Predicate P not including parenthesis, 
 I just assume this grammar does not use parenthesis to elevate the precedence of operators.
 
 Because of the simplicity and the ambiguity of the requirement, I did not try to implement a complete parser for the overall SQL grammar. 
